@@ -47,11 +47,9 @@
     "chat"
   ],
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/mysticBel/discord-react.git"
-  },
-  "bugs": {
-    "url": "https://github.com/mysticBel/discord-react/issues"
-  },
-  "homepage": "https://github.com/mysticBel/discord-react#readme"
+    "type": "",
+    "url": ""
+  }
+  
+
 }
