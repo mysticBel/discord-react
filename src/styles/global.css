@@ -82,6 +82,7 @@ code {
   
   .sidebar__addChannel:hover {
     color: white;
+    cursor: pointer;
   }
   
   .sidebar__channelsHeader {
@@ -119,6 +120,7 @@ code {
   
   .sidebar__profileIcons > .MuiSvgIcon-root {
     padding: 10px;
+    cursor: pointer;
   }
   
   /*  SIDEBAR channel*/
