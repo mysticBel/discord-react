@@ -1,9 +1,35 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+
+import { AddCircle, CreditCard, Gif, EmojiEmotions } from '@material-ui/icons'
 
 function ChatScreen(){
+
+   const [ inputMessage, setInputMessage ] = useState('');
+
     return (
-        <div>
-          ChatScreen component works ! ✨
+        <div className="chat">
+         
+           <div>channel Header</div>
+           <div className="chat__messages">
+               {/* mapping messages from Firebase*/}
+           </div>
+           <div className="chat__input">
+                < AddCircle fontSize= "large" />
+                <form>
+                  <input type="text" value={ inputMessage } disabled
+                   onChange= {(e)=> setInputMessage(e.target.value)} 
+                   placeholder='Send message to #ChannelName' />
+                  <button className="chat__inputButton" type="submit" >Send</button>
+                </form>
+
+                <div className="chat__inputIcons" >
+                  < CreditCard fontSize= "large" />
+                  < Gif fontSize= "large" />
+                  < EmojiEmotions fontSize= "large" />
+                </div>
+
+           </div>
+
         </div>
     )
 }
