@@ -4,7 +4,7 @@ import { ExpandMore, Mic, Add, Headset, Settings } from '@material-ui/icons';
 
 import firebaseApp from "../firebase/credentials";
 import { getAuth, signOut } from "firebase/auth";
-import { getFirestore, collection, doc, getDocs, setDoc  } from "firebase/firestore";
+import { getFirestore, doc, setDoc  } from "firebase/firestore";
 
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
@@ -15,6 +15,16 @@ const firestore = getFirestore(firebaseApp);
 function Sidebar({ userGlobal, setchannelActive }){
 
 
+  function addingChannel() {
+    const nameChannel = prompt("Please, enter a channel name 🧟‍♀️ ");
+      if (nameChannel) {
+        const docuRef = doc(firestore, `awesomeChannel_List/${nameChannel}`) ;
+        setDoc(docuRef, {
+          id: new Date().getTime(),
+          name: nameChannel,
+        });
+      }
+  }
 
   function convertLetterToNumber(str) {
     var out = 0, len = str.length;
@@ -23,6 +33,8 @@ function Sidebar({ userGlobal, setchannelActive }){
     }
     return out;
   }
+
+
 
 
     return (
@@ -40,7 +52,8 @@ function Sidebar({ userGlobal, setchannelActive }){
                 <h4>CHAT</h4>
               </div>
 
-              <Add className="sidebar__addChannel" />
+              <Add className="sidebar__addChannel" 
+                  onClick={ addingChannel} />
             </div>
 
             <div className="sidebar__channelsList">
