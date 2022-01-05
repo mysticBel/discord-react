@@ -4,7 +4,7 @@ import { ExpandMore, Mic, Add, Headset, Settings } from '@material-ui/icons';
 
 import firebaseApp from "../firebase/credentials";
 import { getAuth, signOut } from "firebase/auth";
-import { getFirestore, doc, setDoc  } from "firebase/firestore";
+import { getFirestore, doc, setDoc , collection, getDocs } from "firebase/firestore";
 
 const auth = getAuth(firebaseApp);
 const firestore = getFirestore(firebaseApp);
@@ -14,6 +14,7 @@ const firestore = getFirestore(firebaseApp);
 
 function Sidebar({ userGlobal, setchannelActive }){
 
+ const [listChannels, setListChannels] = useState([]);
 
   function addingChannel() {
     const nameChannel = prompt("Please, enter a channel name 🧟‍♀️ ");
@@ -26,6 +27,19 @@ function Sidebar({ userGlobal, setchannelActive }){
       }
   }
 
+  async function getChannels(){
+    const channelsArr = [];   
+
+    const collectionRef = collection(firestore, "awesomeChannel_List");
+    const encryptedChannels = await getDocs(collectionRef);
+    encryptedChannels.forEach( encryptedChannel=>{
+      channelsArr.push(encryptedChannel.data());
+    } );
+    console.log(channelsArr);
+    setListChannels(channelsArr);
+
+  }
+
   function convertLetterToNumber(str) {
     var out = 0, len = str.length;
     for (let pos = 0; pos < len; pos++) {
@@ -35,7 +49,8 @@ function Sidebar({ userGlobal, setchannelActive }){
   }
 
 
-
+  // [] empty means it will charge once, we want listChannels to charge when entering to app
+  useEffect(() => { getChannels() }, [])
 
     return (
         <div className="sidebar">
@@ -57,7 +72,10 @@ function Sidebar({ userGlobal, setchannelActive }){
             </div>
 
             <div className="sidebar__channelsList">
-              
+               { listChannels ? listChannels.map(channel => {
+                  return  <div> { channel.name }</div>
+               }) : null }
+
                {/* { listChannels ? listChannels.map((channel) => {
 
                }): null} */}
