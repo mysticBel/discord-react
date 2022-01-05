@@ -85,7 +85,8 @@ function Sidebar({ userGlobal, setchannelActive }){
                }): null} */}
 
             </div>
-
+           </div>
+           
             <div className="sidebar__profile">
               <Avatar src= { userGlobal.photoURL }/>
               <div className="sidebar__profileInfo">
@@ -97,7 +98,7 @@ function Sidebar({ userGlobal, setchannelActive }){
                 <Headset />
                 <Settings onClick={() => signOut(auth)} />
               </div>
-            </div>
+            
           </div> 
         </div>
     );
