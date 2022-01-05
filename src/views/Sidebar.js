@@ -27,6 +27,7 @@ function Sidebar({ userGlobal, setchannelActive }){
           name: nameChannel,
         });
       }
+      getChannels();
   }
 
   async function getChannels(){
