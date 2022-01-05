@@ -2,6 +2,8 @@ import React , { useState, useEffect } from 'react';
 import { Avatar } from '@material-ui/core';
 import { ExpandMore, Mic, Add, Headset, Settings } from '@material-ui/icons';
 
+import SidebarChannelList from "../components/SidebarChannelList";
+
 import firebaseApp from "../firebase/credentials";
 import { getAuth, signOut } from "firebase/auth";
 import { getFirestore, doc, setDoc , collection, getDocs } from "firebase/firestore";
@@ -73,7 +75,8 @@ function Sidebar({ userGlobal, setchannelActive }){
 
             <div className="sidebar__channelsList">
                { listChannels ? listChannels.map(channel => {
-                  return  <div> { channel.name }</div>
+                  return  < SidebarChannelList name ={channel.name} id= {channel.id} />
+                 
                }) : null }
 
                {/* { listChannels ? listChannels.map((channel) => {
