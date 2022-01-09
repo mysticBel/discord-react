@@ -1,6 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-import { AddCircle, CreditCard, Gif, EmojiEmotions } from '@material-ui/icons'
+
+
+import { AddCircle, CreditCard, Gif, EmojiEmotions } from '@material-ui/icons';
+import  HeaderChat  from '../components/HeaderChat';
 
 function ChatScreen(){
 
@@ -9,7 +12,7 @@ function ChatScreen(){
     return (
         <div className="chat">
          
-           <div>channel Header</div>
+           <HeaderChat />
            <div className="chat__messages">
                {/* mapping messages from Firebase*/}
            </div>
