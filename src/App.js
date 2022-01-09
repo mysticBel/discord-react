@@ -29,7 +29,9 @@ function App() {
             userGlobal={userGlobal}
             setchannelActive={setchannelActive}
           />{" "}
-          <ChatScreen channelActive={channelActive} user={userGlobal} />{" "}
+          <ChatScreen   
+             user={userGlobal}
+             channelActive={channelActive}  />{" "}
         </>
       ) : (
         <Login />
