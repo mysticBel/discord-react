@@ -76,7 +76,9 @@ function Sidebar({ userGlobal, setchannelActive }){
 
             <div className="sidebar__channelsList">
                { listChannels ? listChannels.map(channel => {
-                  return  < SidebarChannelList name ={channel.name} id= {channel.id} />
+                  return  <div onClick={()=> setchannelActive(channel.name) }>
+                    <SidebarChannelList name ={channel.name} id= {channel.id} />
+                    </div>
                  
                }) : null }
 

@@ -5,14 +5,15 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AddCircle, CreditCard, Gif, EmojiEmotions } from '@material-ui/icons';
 import  HeaderChat  from '../components/HeaderChat';
 
-function ChatScreen(){
+function ChatScreen( {channelActive} ){
 
    const [ inputMessage, setInputMessage ] = useState('');
 
     return (
         <div className="chat">
          
-           <HeaderChat />
+           <HeaderChat nameChannel={ channelActive } />
+
            <div className="chat__messages">
                {/* mapping messages from Firebase*/}
            </div>

@@ -3,7 +3,7 @@ import React from 'react';
 import { Notifications, Room, PeopleAlt, Search, Send,Help } from '@material-ui/icons';
 
 
-function headerChat() {
+function headerChat({ nameChannel }) {
 
     return (
         <div className="chatHeader">
@@ -11,7 +11,7 @@ function headerChat() {
             <div className="chatHeader__left">
                 <h3>
                     <span className="chatHeader__hash">#</span>
-                    Channel Name 
+                    { nameChannel} 
                 </h3>
 
             </div>
