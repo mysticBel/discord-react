@@ -22,7 +22,7 @@ function ChatScreen( {channelActive} ){
                 <form>
                   <input type="text" value={ inputMessage } disabled
                    onChange= {(e)=> setInputMessage(e.target.value)} 
-                   placeholder='Send message to #ChannelName' />
+                   placeholder={`Send message to # ${ channelActive}`} />
                   <button className="chat__inputButton" type="submit" >Send</button>
                 </form>
 
