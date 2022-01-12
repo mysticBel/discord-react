@@ -28,6 +28,8 @@ function ChatScreen( {channelActive, user} ){
      });
 
      setInputMessage("");
+     // we add getMessageList to see in real time the messages on ChatScreen
+     getMessageList();
 
    }
 
@@ -50,9 +52,7 @@ function ChatScreen( {channelActive, user} ){
 
 
    // it starts executing with an empty array.
-   useEffect( ()=> {
-     getMessageList();
-   }, [])
+   useEffect( ()=> { getMessageList()}, [channelActive] );
 
     return (
         <div className="chat">
@@ -61,7 +61,9 @@ function ChatScreen( {channelActive, user} ){
 
            <div className="chat__messages">
                {/* mapping messages from Firebase*/}
-               
+               { messageList ? messageList.map( msg => {
+                 return <Message mensajeFirebase={ msg } />
+               }) : null }
            </div>
            <div className="chat__input">
                 < AddCircle fontSize= "large" />

@@ -11,7 +11,7 @@ function Message( { mensajeFirebase }) {
             <Avatar src={ mensajeFirebase.photo } />
             <div className="message__info">
                  <h4>
-                     { mensajeFirebase.user }
+                     { mensajeFirebase.username }
                      <span className="message__timestamp"> {new Date(mensajeFirebase.id).toLocalString } </span>        
                  </h4>
                  <p> { mensajeFirebase.message } </p>
