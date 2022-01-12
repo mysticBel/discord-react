@@ -30,13 +30,28 @@ code {
     align-items: center;
     height: 100vh;
     width: 100%;
+    background-image: url(https://raw.githubusercontent.com/mysticBel/discord-react/adbd943854ae4a93de262108a6b305a8e13ce37d/src/assets/background-login.jpg);
   }
-  
+
+  .welcome__chatScreen{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: rgb(93, 97, 105);
+    color: #eff2f5;
+    font-weight: 700;
+    font-size:1.5rem;
+  }
   .login > button {
-    width: 300px;
+    width: 270px;
     background-color: #738adb;
     color: #eff2f5;
     font-weight: 800;
+    margin-top: 1rem;
+    border-radius:0.5rem;
   }
   
   .login > button:hover {
@@ -45,6 +60,11 @@ code {
   }
   
   .login > div > img {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     object-fit: contain;
     height: 150px;
   }

@@ -5,6 +5,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AddCircle, CreditCard, Gif, EmojiEmotions } from '@material-ui/icons';
 import  HeaderChat  from '../components/HeaderChat';
 import  Message from '../components/Message';
+import  WelcomeMsg from '../components/Welcome';
 
 
 import firebaseApp from "../firebase/credentials";
@@ -57,7 +58,8 @@ function ChatScreen( {channelActive, user} ){
     return (
         <div className="chat">
          
-           <HeaderChat nameChannel={ channelActive } />
+         { channelActive ? <HeaderChat nameChannel={ channelActive } />: < WelcomeMsg />}
+           
 
            <div className="chat__messages">
                {/* mapping messages from Firebase*/}
