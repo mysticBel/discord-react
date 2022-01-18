@@ -45,6 +45,17 @@ code {
     font-weight: 700;
     font-size:1.5rem;
   }
+
+  .welcome__gif{
+    width: 25%;
+  }
+
+  .welcome__title{
+    color: #eff2f5;
+    font-weight: 700;
+    font-size:4rem;  
+  }
+
   .login > button {
     width: 270px;
     background-color: #738adb;
