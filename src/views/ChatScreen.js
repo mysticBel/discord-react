@@ -18,20 +18,39 @@ function ChatScreen( {channelActive, user} ){
    const [ inputMessage, setInputMessage ] = useState('');
    const [ messageList, setMessageList ] = useState([]);
 
+
+   const anchor = useRef();
+
+   function filterContent(originalText) {
+     const bannedWords = ["tonto", "hdp", "mk"];
+ 
+     const array = originalText.split(" ");
+     array.forEach((word, index) => {
+       if (bannedWords.includes(word)) {
+         array[index] = "****";
+       }
+     });
+ 
+     return array.join(" ");
+   }
+ 
+
    function  sendInputMsg(e) {
      e.preventDefault();
      const docuRef = doc(firestore, `awesomeChannel_List/${channelActive}/messages/${new Date().getTime()} `);
+    
+     const msgFiltered = filterContent(inputMessage);
      setDoc(docuRef, {
        photo:user.photoURL,
        username: user.displayName,
-       message:inputMessage,
+       message:msgFiltered,
        id:new Date().getTime() ,  
      });
 
      setInputMessage("");
      // we add getMessageList to see in real time the messages on ChatScreen
      getMessageList();
-
+     anchor.current.scrollIntoView({ behavior: "smooth" });
    }
 
    async function getMessageList() {
@@ -66,6 +85,8 @@ function ChatScreen( {channelActive, user} ){
                { messageList ? messageList.map( msg => {
                  return <Message mensajeFirebase={ msg } />
                }) : null }
+
+              <div ref={anchor} style={{ marginBottom: "75px" }}></div>
            </div>
            <div className="chat__input">
                 < AddCircle fontSize= "large" />
